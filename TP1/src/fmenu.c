@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include "fmenu.h"
 #include "fOpe.h"
+//Muestra Menu principal
 int menu(int x,int y, int z){
 	int opcion;
 	int cant;
@@ -27,7 +28,7 @@ int menu(int x,int y, int z){
                 }
                 return opcion;
 }
-
+// Pide ingreso de un entero para ubicarlo como el valor distancia.
 int tomaKm(){
 	int x;
 	printf(" Ingresar cantidad de Kilómetros: ( km=x) \n");
@@ -38,6 +39,8 @@ int tomaKm(){
 //si quiero retornar un valor declaro dentro de la duncion y retorno
 //si quiero operar con los valores de main y retornar resultado recibo lo valores de main,  declaro resultado, opero y retorno resultado
 // si quiero modificar variable de main recibo puntero memoria de variable y modifico en La funcion, no retorno nada.
+
+// Toma un entero para ubicarlo como precio del vuelo Aerolineas
 int ingresoAA(int* flagAA){
 	int y;
 	if(*flagAA==1)
@@ -50,7 +53,7 @@ int ingresoAA(int* flagAA){
 
 		return y;//void
 }
-
+// Toma un entero para ubicarlo como precio del vuelo Aerolineas
 int ingresoLA(int* flagLA){
 	int z;
 	if(*flagLA==1)
@@ -62,7 +65,7 @@ int ingresoLA(int* flagLA){
 	}
 	return z;
 }
-
+//Toma los valores resultantes de las operaciones y los muestra en sus respectivos espacios.
 void submenuResultados(int x, int y, int z, int difValores, float valorDebitoA, float valorCreditoA, double valorBitA, float precioKmAerolineas,float valorDebitoL,float valorCreditoL,double valorBitL, float precioKmLatam){
 	printf("KILOMETROS INGRESADOS: %d\n", x);
 	printf("PRECIO AEROLINEAS: %d\n", y);

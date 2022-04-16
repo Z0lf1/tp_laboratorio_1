@@ -57,7 +57,7 @@ int main(void)
 	int flagAA=1;
 	int flagLA=1;
 
-	do {
+	do {//Toma opcion para disparar efecto
 			opcion = menu(x,y,z);
 			switch(opcion)
 			{
