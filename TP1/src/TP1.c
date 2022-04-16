@@ -53,9 +53,10 @@ int main(void)
 	float valorCreditoL;
 	double valorBitL;
 	float precioKmLatam;
-	int difVal;
+	int difVal=-1;
 	int flagAA=1;
 	int flagLA=1;
+
 
 	do {//Toma opcion para disparar efecto
 			opcion = menu(x,y,z);
@@ -87,10 +88,18 @@ int main(void)
 						printf("Imposible calcular valores referentes a Latam, ingrese los valores pertinentes\n");
 					}
 					difVal = difValores(y,z);
+
 					break;
 				case 4:
 					system("cls");
-					submenuResultados(x, y, z, difVal, valorDebitoA, valorCreditoA, valorBitA, precioKmAerolineas, valorDebitoL, valorCreditoL, valorBitL, precioKmLatam);
+					if(difVal>=0)
+					{
+						submenuResultados(x, y, z, difVal, valorDebitoA, valorCreditoA, valorBitA, precioKmAerolineas, valorDebitoL, valorCreditoL, valorBitL, precioKmLatam);
+					}
+					else
+					{
+						printf("Imposible mostrar lo que no se calculo, ejecute el paso 3 previamente");
+					}
 					break;
 				case 5:
 					cargaForzada(&valorDebitoA, &valorCreditoA,  &valorBitA, &precioKmAerolineas, &valorDebitoL, &valorCreditoL, &valorBitL, &precioKmLatam);
