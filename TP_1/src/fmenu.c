@@ -9,11 +9,11 @@
 #include "fmenu.h"
 #include "fOpe.h"
 //Muestra Menu principal
-int menu(int x,int y, int z, int difVal){
+int menu(int x,int y, int z, int flagPrecio){
 	int opcion;
 	    printf(" *** Menu de Opciones ***\n");
         printf("1. Ingresar Kilómetros: (km= %d)\n",x);
-        if(difVal==-1)
+        if(flagPrecio==0)
         {
         	printf("2. Ingresar Precio de Vuelos: (Aerolíneas=y, Latam=z)\n");
         }

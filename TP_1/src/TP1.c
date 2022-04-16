@@ -1,10 +1,8 @@
 /*
  ============================================================================
- Name        : TP1.c
- Author      : Z0lf1
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Name        : TP_1.c
+ Author      : Alan Magariños 1G Z0lf1
+ Description :
 1. Ingresar Kilómetros: ( km=x)
 2. Ingresar Precio de Vuelos: (Aerolíneas=y, Latam=z)
 - Precio vuelo Aerolíneas:
@@ -56,10 +54,11 @@ int main(void)
 	int difVal=-1;
 	int flagAA=1;
 	int flagLA=1;
-
+	int flagCalculos=0;
+	int flagPrecio=0;
 
 	do {//Toma opcion para disparar efecto
-			opcion = menu(x,y,z,difVal);
+			opcion = menu(x,y,z,flagPrecio);
 			switch(opcion)
 			{
 				case 1:
@@ -67,8 +66,15 @@ int main(void)
 					system("pause");
 					break;
 				case 2:
+					if(x==0)
+					{
+						printf("Primero ingrese un valor para la distacia del vuelo\n");
+						system("pause");
+						break;
+					}
 					y = ingresoAA(&flagAA);
 					z = ingresoLA(&flagLA);
+					flagPrecio=1;
 					system("pause");
 					break;
 				case 3:
@@ -76,17 +82,19 @@ int main(void)
 					{
 						calculoValoresAA(x, y,  &valorDebitoA, &valorCreditoA,  &valorBitA, &precioKmAerolineas);
 						calculoValoresLA(x, z, &valorDebitoL, &valorCreditoL, &valorBitL, &precioKmLatam);
+						flagCalculos=1;
 					}
 					else
 					{
 						printf("Imposible calcular valores referentes a Aerolineas Argentinas ó Latam, ingrese por favor los valores pertinentes para AMBOS casos\n");
 					}
 					difVal = difValores(y,z);
+
 					system("pause");
 					break;
 				case 4:
 					system("cls");
-					if(difVal>=0)
+					if(flagCalculos==1)
 					{
 						submenuResultados(x, y, z, difVal, valorDebitoA, valorCreditoA, valorBitA, precioKmAerolineas, valorDebitoL, valorCreditoL, valorBitL, precioKmLatam);
 					}
