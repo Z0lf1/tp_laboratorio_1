@@ -47,7 +47,7 @@ void submenuResultados(int, int, int, int, float, float, double, float, float, f
 /// @param y toma un entero para mostrarlo como precio del vuelo de primer aerolinea via print.
 /// @param z toma un entero para mostrarlo como precio del vuelo de segunda aerolinea via print.
 /// @return retorna un entero util para opciones.
-int menu(int, int, int);
+int menu(int, int, int, int);
 
 
 #endif /* FMENU_H_ */

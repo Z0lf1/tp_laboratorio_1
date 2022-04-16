@@ -59,36 +59,30 @@ int main(void)
 
 
 	do {//Toma opcion para disparar efecto
-			opcion = menu(x,y,z);
+			opcion = menu(x,y,z,difVal);
 			switch(opcion)
 			{
 				case 1:
 					x = tomaKm();
+					system("pause");
 					break;
 				case 2:
 					y = ingresoAA(&flagAA);
 					z = ingresoLA(&flagLA);
+					system("pause");
 					break;
 				case 3:
 					if(flagAA==0)
 					{
 						calculoValoresAA(x, y,  &valorDebitoA, &valorCreditoA,  &valorBitA, &precioKmAerolineas);
-					}
-					else
-					{
-						printf("Imposible calcular valores referentes a Aerolineas Argentinas, ingrese los valores pertinentes\n");
-					}
-
-					if(flagLA==0)
-					{
 						calculoValoresLA(x, z, &valorDebitoL, &valorCreditoL, &valorBitL, &precioKmLatam);
 					}
 					else
 					{
-						printf("Imposible calcular valores referentes a Latam, ingrese los valores pertinentes\n");
+						printf("Imposible calcular valores referentes a Aerolineas Argentinas ó Latam, ingrese por favor los valores pertinentes para AMBOS casos\n");
 					}
 					difVal = difValores(y,z);
-
+					system("pause");
 					break;
 				case 4:
 					system("cls");
@@ -100,12 +94,15 @@ int main(void)
 					{
 						printf("Imposible mostrar lo que no se calculo, ejecute el paso 3 previamente");
 					}
+					system("pause");
 					break;
 				case 5:
 					cargaForzada(&valorDebitoA, &valorCreditoA,  &valorBitA, &precioKmAerolineas, &valorDebitoL, &valorCreditoL, &valorBitL, &precioKmLatam);
+					system("pause");
 					break;
 				case 6:
 					printf("SALIENDO\n");
+					system("pause");
 					break;
 				default:
 					printf("Opcion incorrecta pone algo valido del 1 al 6\n");

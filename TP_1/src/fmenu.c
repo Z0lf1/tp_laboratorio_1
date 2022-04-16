@@ -9,24 +9,26 @@
 #include "fmenu.h"
 #include "fOpe.h"
 //Muestra Menu principal
-int menu(int x,int y, int z){
+int menu(int x,int y, int z, int difVal){
 	int opcion;
-	int cant;
-        printf(" *** Menu de Opciones ***\n");
+	    printf(" *** Menu de Opciones ***\n");
         printf("1. Ingresar Kilómetros: (km= %d)\n",x);
-        printf("2. Ingresar Precio de Vuelos: (Aerolineas: $ %d / Latam: $ %d) \n",y,z);
+        if(difVal==-1)
+        {
+        	printf("2. Ingresar Precio de Vuelos: (Aerolíneas=y, Latam=z)\n");
+        }
+        else
+        {
+        	printf("2. Ingresar Precio de Vuelos: (Aerolineas: $ %d / Latam: $ %d) \n",y,z);
+        }
         printf("3. Calcular todos los costos: \n");
         printf("4. Informar Resultados \n");
         printf("5. Carga forzada de datos \n");
         printf("6. Salir \n");
         printf("\n Ingrese una opcion: ");
         fflush(stdin);
-        //scanf("%d",&opcion);
-        cant =  scanf("%d", &opcion);
-                if(cant == 0){
-                    opcion = 6;
-                }
-                return opcion;
+        scanf("%d", &opcion);
+        return opcion;
 }
 // Pide ingreso de un entero para ubicarlo como el valor distancia.
 int tomaKm(){
@@ -34,11 +36,14 @@ int tomaKm(){
 	printf(" Ingresar cantidad de Kilómetros: ( km=x) \n");
 	fflush(stdin);
 	scanf("%d", &x);
+	while(x<0)
+	{
+		printf(" Ingresar cantidad de Kilómetros no negativa: ( km=x) \n");
+		scanf("%d", &x);
+	}
 	return x;
 }
-//si quiero retornar un valor declaro dentro de la duncion y retorno
-//si quiero operar con los valores de main y retornar resultado recibo lo valores de main,  declaro resultado, opero y retorno resultado
-// si quiero modificar variable de main recibo puntero memoria de variable y modifico en La funcion, no retorno nada.
+
 
 // Toma un entero para ubicarlo como precio del vuelo Aerolineas
 int ingresoAA(int* flagAA){
@@ -48,6 +53,11 @@ int ingresoAA(int* flagAA){
 		printf("Ingresar precio del viaje por Aerolineas: ");
 		fflush(stdin);
 		scanf("%d",&y);
+		while(y<10000)
+			{
+				printf(" ERROR Ingresar precio no menor a 10000 para el viaje por Aerolineas: \n");
+				scanf("%d", &y);
+			}
 		*flagAA=0;
 	}
 
@@ -61,6 +71,11 @@ int ingresoLA(int* flagLA){
 		printf("Ingresar precio del viaje por LATAM : ");
 		fflush(stdin);
 		scanf("%d",&z);
+		while(z<10000)
+			{
+				printf(" ERROR Ingresar precio no menor a 10000 para el viaje por Latam: \n");
+				scanf("%d", &z);
+			}
 		*flagLA=0;
 	}
 	return z;
